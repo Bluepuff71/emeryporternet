@@ -1,0 +1,13 @@
+.carousel-caption{
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.pdfobject-container {
+    height: 600px;
+}
+
+.carousel-indicators {
+    bottom: -20px;
+}
