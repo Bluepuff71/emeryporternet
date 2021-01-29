@@ -20,6 +20,20 @@
     bottom: -20px;
 }
 
+.video-responsive{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+}
+.video-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    position:absolute;
+}
+
 /* Extra small devices (phones, 600px and down) */
 @media (max-width:576px){
     .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
