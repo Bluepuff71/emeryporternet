@@ -1,3 +1,11 @@
+#emery-img{
+    max-width: 320px !important;
+}
+
+#who-am-i-container {
+    max-width: 880px;
+}
+
 .carousel-caption{
     position: relative;
     left: 0;
