@@ -19,9 +19,7 @@
 
 <div id="main-navbar">
     <script>
-        loadHtmlIntoDivWithCallback("pages/navbar.html", "main-navbar", () => {
-            loadTabs();
-        })
+        loadHtmlIntoDiv("pages/navbar.html", "main-navbar");
     </script>
 </div>
 
@@ -42,7 +40,7 @@
             </div>
             <div class="tab-pane fade" id="resume-content" role="tabpanel" aria-labelledby="resume-content-tab">
                 <script>
-                    loadHtmlIntoDivWithCallback("pages/about/resume/resume.html", "resume-content", () => {
+                    loadHtmlIntoDiv("pages/about/resume/resume.html", "resume-content").then(() => {
                         PDFObject.embed("pages/about/resume/static/pdf/Robert%20Emery%20Porter%20Resume.pdf", "#resume");
                     });
                 </script>
