@@ -12,654 +12,95 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.4/pdfobject.min.js"
             integrity="sha512-mW7siBAOOJTkMl77cTke1Krn+Wz8DJrjMzlKaorrGeGecq0DPUq28KgMrX060xQQOGjcl7MSSep+/1FOprNltw=="
             crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
 <h1 class="display-1 text-center">emeryporter.net</h1>
-<ul class="nav nav-tabs nav-justified flex-column flex-sm-row" role="tablist">
-    <li class="nav-item d-none d-xl-block" role="presentation"></li>
-    <li class="nav-item d-none d-lg-block" role="presentation"></li>
-    <li class="nav-item text-sm-center" role="presentation">
-        <a class="nav-link active" id="about-tab" data-bs-toggle="tab" href="#about" role="tab"
-           aria-controls="about-me" aria-selected="true">About</a>
-    </li>
-    <li class="nav-item text-sm-center" role="presentation">
-        <a class="nav-link" id="games-tab" data-bs-toggle="tab" href="#games" role="tab"
-           aria-controls="games" aria-selected="true">Games</a>
-    </li>
-    <li class="nav-item text-sm-center" role="presentation">
-        <a class="nav-link" id="game-systems-tab" data-bs-toggle="tab" href="#game-systems" role="tab"
-           aria-controls="game-systems"
-           aria-selected="false">Game Systems</a>
-    </li>
-    <li class="nav-item d-none d-lg-block" role="presentation"></li>
-    <li class="nav-item d-none d-xl-block" role="presentation"></li>
-    <!--<li class="nav-item" role="presentation">
-        <a class="nav-link" id="software-tab" data-bs-toggle="tab" href="#software" role="tab" aria-controls="software"
-           aria-selected="false">Software</a>
-    </li>
-    <li class="nav-item" role="presentation">
-        <a class="nav-link" id="acting-tab" data-bs-toggle="tab" href="#acting" role="tab" aria-controls="acting"
-           aria-selected="false">Acting</a>
-    </li>-->
-</ul>
+
+<div id="main-navbar">
+    <script>
+        loadHtmlIntoDivWithCallback("pages/navbar.html", "main-navbar", () => {
+            loadTabs();
+        })
+    </script>
+</div>
+
 
 <div class="tab-content">
+    <!-- About Tab -->
     <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
-        <div class="mx-auto">
-            <ul class="nav nav-pills nav-justified my-2 mx-4 flex-column flex-sm-row" role="tablist">
-                <li class="nav-item d-none d-xl-block" role="presentation"></li>
-                <li class="nav-item d-none d-lg-block" role="presentation"></li>
-                <li class="nav-item text-sm-center" role="presentation">
-                    <a class="nav-link active" id="who-am-i-content-tab" data-bs-toggle="pill" href="#who-am-i-content"
-                       role="tab"
-                       aria-controls="who-am-i-content" aria-selected="true">Who am I?</a>
-                </li>
-                <li class="nav-item text-sm-center" role="presentation">
-                    <a class="nav-link" id="resume-content-tab" data-bs-toggle="pill" href="#resume-content"
-                       role="tab"
-                       aria-controls="resume-content" aria-selected="true">Resume</a>
-                </li>
-                <li class="nav-item d-none d-lg-block" role="presentation"></li>
-                <li class="nav-item d-none d-xl-block" role="presentation"></li>
-            </ul>
+        <div class="mx-auto" id="about-navbar">
+            <script>
+                loadHtmlIntoDiv("pages/about/navbar.html", "about-navbar")
+            </script>
         </div>
         <div class="tab-content">
-            <div class="tab-pane fade show active" id="who-am-i-content" role="tabpanel"
-                 aria-labelledby="who-am-i-content-tab">
-                <div id="who-am-i-container" class="container">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-5 d-none d-lg-block">
-                                    <img id="emery-img" class="img-thumbnail" src="static/img/headshots/Emery-Dev.jpg"
-                                         alt="A picture of Emery">
-                                </div>
-                                <div class="col-md-7 mx-auto text-center">
-                                    <h2>Welcome to my website!</h2>
-                                    <p>
-                                        I'm stoked you're here!
-                                        <br/>
-                                        If you'd like to get in touch with me, feel free to email me at
-                                        <a href="mailto:emery@emeryporter.net">emery@emeryporter.net</a>!
-                                        <br/>
-                                        <br/>
-                                        While I've got your attention,
-                                        let me tell you some interesting facts about myself.
-                                        <br/>
-                                        <br/>
-                                        I've been programming since 2012. I have been acting since roughly 2008.
-                                        <br/>
-                                        I have a passion for game design and game systems programming.
-                                        <br/>
-                                        I DM and play tons of Dungeons & Dragons (5e).
-                                        <br/>
-                                        <br/>
-                                        Thanks for reading!
-                                        <br/>
-                                        - Emery
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="tab-pane fade show active" id="who-am-i-content" role="tabpanel" aria-labelledby="who-am-i-content-tab">
+                <script>
+                    loadHtmlIntoDiv("pages/about/who-am-i/who-am-i.html", "who-am-i-content")
+                </script>
             </div>
             <div class="tab-pane fade" id="resume-content" role="tabpanel" aria-labelledby="resume-content-tab">
-                <div class="container h-75">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <div id="resume"></div>
-                            <script>
-                                PDFObject.embed("static/pdf/Robert%20Emery%20Porter%20Resume.pdf", "#resume");
-                            </script>
-                            <div class="text-start">
-                                <a class="btn btn-outline-info mt-2"
-                                   href="static/pdf/Robert%20Emery%20Porter%20Resume.pdf" download>Download Resume</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <script>
+                    loadHtmlIntoDivWithCallback("pages/about/resume/resume.html", "resume-content", () => {
+                        PDFObject.embed("pages/about/resume/static/pdf/Robert%20Emery%20Porter%20Resume.pdf", "#resume");
+                    });
+                </script>
             </div>
         </div>
     </div>
+    <!-- /About Tab -->
+
+    <!-- Games Tab -->
     <div class="tab-pane fade" id="games" role="tabpanel" aria-labelledby="games-tab">
-        <div class="mx-auto">
-            <ul class="nav nav-pills nav-justified mx-4 my-2 flex-column flex-sm-row" role="tablist">
-                <li class="nav-item d-none d-xl-block" role="presentation"></li>
-                <li class="nav-item d-none d-lg-block" role="presentation"></li>
-                <li class="nav-item text-sm-center" role="presentation">
-                    <a class="nav-link active" id="fluxlab-content-tab" data-bs-toggle="pill" href="#fluxlab-content"
-                       role="tab"
-                       aria-controls="fluxlab-content" aria-selected="true">FluxLab</a>
-                </li>
-                <li class="nav-item text-sm-center" role="presentation">
-                    <a class="nav-link" id="superfist-content-tab" data-bs-toggle="pill" href="#superfist-content"
-                       role="tab"
-                       aria-controls="superfist-content" aria-selected="true">Superfist</a>
-                </li>
-                <li class="nav-item text-sm-center" role="presentation">
-                    <a class="nav-link" id="tamagotchi-content-tab" data-bs-toggle="pill" href="#tamagotchi-content"
-                       role="tab"
-                       aria-controls="tamagotchi-content" aria-selected="true">Tamagotchi</a>
-                </li>
-                <li class="nav-item d-none d-lg-block" role="presentation"></li>
-                <li class="nav-item d-none d-xl-block" role="presentation"></li>
-            </ul>
+        <div class="mx-auto" id="games-navbar">
+            <script>
+                loadHtmlIntoDiv("pages/games/navbar.html", "games-navbar");
+            </script>
         </div>
         <div class="tab-content">
-            <div class="tab-pane fade show active" id="fluxlab-content" role="tabpanel"
-                 aria-labelledby="fluxlab-content-tab">
-                <div class="container">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h1>Fluxlab</h1>
-                            <h4><span class="badge bg-success">Complete</span></h4>
-                            <blockquote class="blockquote">
-                                <p class="mb-0">A VR circuit building game built in the Unreal Engine</p>
-                            </blockquote>
-                            <span class="d-inline-block" tabindex="0" title="Fluxlab is closed source for now.">
-                                <a class="btn btn-info disabled" href="#" target="_blank"
-                                   role="button">Latest Release</a>
-                            </span>
-                            <div class="accordion accordion-flush" id="fluxlab-accordion">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="fluxlab-description-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#fluxlab-description-body" aria-expanded="true"
-                                                aria-controls="fluxlab-description-body">
-                                            Description
-                                        </button>
-                                    </h2>
-                                    <div id="fluxlab-description-body" class="accordion-collapse collapse show"
-                                         aria-labelledby="fluxlab-description-header"
-                                         data-bs-parent="#fluxlab-accordion">
-                                        <div class="accordion-body">
-                                            <h4>Origin</h4>
-                                            <p>
-                                                Fluxlab was my submission for the
-                                                <a href="#" data-bs-toggle="modal"
-                                                   data-bs-target="#fluxlab-project-requirements">final project</a>
-                                                of CS4331: Virtual Reality.
-                                            </p>
-                                            <h4>Overview</h4>
-                                            <p>
-                                                Fluxlab is a VR circuit building game built in the Unreal Engine.
-                                                The game allows players to build complex circuits along a grid using 4
-                                                different blocks.
-                                            </p>
-                                            <h4>Systems</h4>
-                                            <p>
-                                                Every aspect of the game was written in C++ by me. This includes, the
-                                                grid system,
-                                                power system, arm menu, and blocks.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="fluxlab-video-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#fluxlab-video-body"
-                                                aria-expanded="false" aria-controls="fluxlab-video-body">
-                                            Video
-                                        </button>
-                                    </h2>
-                                    <div id="fluxlab-video-body" class="accordion-collapse collapse"
-                                         aria-labelledby="fluxlab-video-header" data-bs-parent="#fluxlab-accordion">
-                                        <div class="accordion-body">
-                                            Video coming soon.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="fluxlab-screenshots-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#fluxlab-screenshots-body"
-                                                aria-expanded="false" aria-controls="fluxlab-screenshots-body">
-                                            Screenshots
-                                        </button>
-                                    </h2>
-                                    <div id="fluxlab-screenshots-body" class="accordion-collapse collapse"
-                                         aria-labelledby="fluxlab-screenshots-header"
-                                         data-bs-parent="#fluxlab-accordion">
-                                        <div class="accordion-body">
-                                            <div id="fluxlab-pictures" class="carousel slide" data-bs-ride="carousel">
-                                                <ol class="carousel-indicators">
-                                                    <li data-bs-target="#fluxlab-pictures" data-bs-slide-to="0"
-                                                        class="active"></li>
-                                                    <li data-bs-target="#fluxlab-pictures" data-bs-slide-to="1"></li>
-                                                    <li data-bs-target="#fluxlab-pictures" data-bs-slide-to="2"></li>
-                                                    <li data-bs-target="#fluxlab-pictures" data-bs-slide-to="3"></li>
-                                                </ol>
-                                                <div class="carousel-inner">
-                                                    <div class="carousel-item active">
-                                                        <img src="static/img/fluxlab/MainRoom.png" class="d-block w-100"
-                                                             alt="Main Room">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>Main Room</h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img src="static/img/fluxlab/AND.png" class="d-block w-100"
-                                                             alt="AND Gate">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>AND Gate</h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img src="static/img/fluxlab/OR.png" class="d-block w-100"
-                                                             alt="OR Gate">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>OR Gate</h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img src="static/img/fluxlab/XOR.png" class="d-block w-100"
-                                                             alt="XOR Gate">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>XOR Gate</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a class="carousel-control-prev" href="#fluxlab-pictures" role="button"
-                                                   data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Previous</span>
-                                                </a>
-                                                <a class="carousel-control-next" href="#fluxlab-pictures" role="button"
-                                                   data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Next</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="tab-pane fade show active" id="fluxlab-content" role="tabpanel" aria-labelledby="fluxlab-content-tab">
+                <script>
+                    loadHtmlIntoDiv("pages/games/fluxlab/fluxlab.html", "fluxlab-content");
+                </script>
             </div>
             <div class="tab-pane fade" id="superfist-content" role="tabpanel" aria-labelledby="superfist-content-tab">
-                <div class="container">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h1>Superfist</h1>
-                            <h4><span class="badge bg-success">Complete</span></h4>
-                            <blockquote class="blockquote">
-                                <p class="mb-0">A silly 3D fighting game built in the Unity Engine</p>
-                            </blockquote>
-                            <a class="btn btn-info" href="https://bluepuff.itch.io/superfist" target="_blank"
-                               role="button">Latest Release</a>
-                            <div class="accordion accordion-flush" id="superfist-accordion">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="superfist-description-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#superfist-description-body" aria-expanded="true"
-                                                aria-controls="superfist-description-body">
-                                            Description
-                                        </button>
-                                    </h2>
-                                    <div id="superfist-description-body" class="accordion-collapse collapse show"
-                                         aria-labelledby="superfist-description-header"
-                                         data-bs-parent="#superfist-accordion">
-                                        <div class="accordion-body">
-                                            <h4>Origin</h4>
-                                            <p>Superfist is a game I made during HackwestTX 2020.</p>
-                                            <h4>Overview</h4>
-                                            <p>
-                                                Superfist is a 3D fighting game built in the Unity Engine about ordinary
-                                                people with extraordinary punching ability.
-                                            </p>
-                                            <h4>Systems</h4>
-                                            <p>
-                                                The fighting system was bought from the unity asset store and heavily
-                                                modified
-                                                by me to support Unity's new input system, block sliding, and
-                                                ragdolling.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="superfist-video-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#superfist-video-body"
-                                                aria-expanded="false" aria-controls="superfist-video-body">
-                                            Video
-                                        </button>
-                                    </h2>
-                                    <div id="superfist-video-body" class="accordion-collapse collapse"
-                                         aria-labelledby="superfist-video-header" data-bs-parent="#fluxlab-accordion">
-                                        <div class="accordion-body">
-                                            <div class="video-responsive">
-                                                <iframe width="640" height="360"
-                                                        src="https://www.youtube.com/embed/CCRVvarNGHs"
-                                                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                        allowfullscreen></iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <script>
+                    loadHtmlIntoDiv("pages/games/superfist/superfist.html", "superfist-content");
+                </script>
             </div>
             <div class="tab-pane fade" id="tamagotchi-content" role="tabpanel" aria-labelledby="tamagotchi-content-tab">
-                <div class="container">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h1>Tamagotchi</h1>
-                            <h4><span class="badge bg-success">Complete</span></h4>
-                            <blockquote class="blockquote">
-                                <p class="mb-0">A virtual pet game built in Javatech, a custom Java game engine.</p>
-                            </blockquote>
-                            <a class="btn btn-info" href="https://github.com/Bluepuff71/Tamagotchi" target="_blank"
-                               role="button">Latest Release</a>
-                            <div class="accordion accordion-flush" id="tamagotchi-accordion">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="tamagotchi-description-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#tamagotchi-description-body" aria-expanded="true"
-                                                aria-controls="tamagotchi-description-body">
-                                            Description
-                                        </button>
-                                    </h2>
-                                    <div id="tamagotchi-description-body" class="accordion-collapse collapse show"
-                                         aria-labelledby="tamagotchi-description-header"
-                                         data-bs-parent="#tamagotchi-accordion">
-                                        <div class="accordion-body">
-                                            <h4>Origin</h4>
-                                            <p>
-                                                Tamagotchi was my submission for the final project of CS4365: Software
-                                                Engineering II.
-                                            </p>
-                                            <h4>Overview</h4>
-                                            <p>
-                                                Tamagotchi allows you to take care of and communicate with a virtual
-                                                pet.
-                                                Your pet must eat, drink, be cleaned, and be played with in order to
-                                                stay happy and alive.
-                                            </p>
-                                            <h4>Systems</h4>
-                                            <p>
-                                                The game was built upon JavaTech, a rudimentary custom game engine
-                                                written by myself.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="tamagotchi-screenshots-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#tamagotchi-screenshots-body"
-                                                aria-expanded="false" aria-controls="tamagotchi-screenshots-body">
-                                            Screenshots
-                                        </button>
-                                    </h2>
-                                    <div id="tamagotchi-screenshots-body" class="accordion-collapse collapse"
-                                         aria-labelledby="tamagotchi-screenshots-header"
-                                         data-bs-parent="#tamagotchi-accordion">
-                                        <div class="accordion-body">
-                                            <div id="tamagotchi-pictures" class="carousel slide"
-                                                 data-bs-ride="carousel">
-                                                <ol class="carousel-indicators">
-                                                    <li data-bs-target="#tamagotchi-pictures" data-bs-slide-to="0"
-                                                        class="active"></li>
-                                                    <li data-bs-target="#tamagotchi-pictures" data-bs-slide-to="1"></li>
-                                                    <li data-bs-target="#tamagotchi-pictures" data-bs-slide-to="2"></li>
-                                                </ol>
-                                                <div class="carousel-inner">
-                                                    <div class="carousel-item active">
-                                                        <img src="static/img/tamagotchi/MainMenu.png"
-                                                             class="d-block w-100" alt="Main Menu">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>Main Menu</h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img src="static/img/tamagotchi/Tamagatchi.png"
-                                                             class="d-block w-100" alt="Tamagotchi Screen">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>Tamagotchi Main Screen</h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img src="static/img/tamagotchi/Load.png" class="d-block w-100"
-                                                             alt="Load a Tamagotchi Screen">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>Load a Tamagotchi</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a class="carousel-control-prev" href="#tamagotchi-pictures"
-                                                   role="button" data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Previous</span>
-                                                </a>
-                                                <a class="carousel-control-next" href="#tamagotchi-pictures"
-                                                   role="button" data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Next</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <script>
+                    loadHtmlIntoDiv("pages/games/tamagotchi/tamagotchi.html", "tamagotchi-content");
+                </script>
             </div>
         </div>
     </div>
+    <!-- /Games Tab -->
+
+    <!-- Game Systems Tab -->
     <div class="tab-pane fade" id="game-systems" role="tabpanel" aria-labelledby="game-systems-tab">
-        <div class="mx-auto">
-            <ul class="nav nav-pills nav-justified justify-content-center mx-4 my-2 flex-column flex-sm-row"
-                role="tablist">
-                <li class="nav-item d-none d-xl-block" role="presentation"></li>
-                <li class="nav-item d-none d-lg-block" role="presentation"></li>
-                <li class="nav-item text-sm-center" role="presentation">
-                    <a class="nav-link active" id="reflex-content-tab" data-bs-toggle="pill" href="#reflex-content"
-                       role="tab"
-                       aria-controls="reflex-content" aria-selected="true">Reflex</a>
-                </li>
-                <li class="nav-item text-sm-center" role="presentation">
-                    <a class="nav-link" id="specular-content-tab" data-bs-toggle="pill" href="#specular-content"
-                       role="tab"
-                       aria-controls="specular-content" aria-selected="true">Specular</a>
-                </li>
-                <li class="nav-item d-none d-lg-block" role="presentation"></li>
-                <li class="nav-item d-none d-xl-block" role="presentation"></li>
-            </ul>
+        <div class="mx-auto" id="game-systems-navbar">
+            <script>
+                loadHtmlIntoDiv("pages/game-systems/navbar.html", "game-systems-navbar");
+            </script>
         </div>
         <div class="tab-content">
             <div class="tab-pane fade show active" id="reflex-content" role="tabpanel"
                  aria-labelledby="reflex-content-tab">
-                <div class="container">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h1>Reflex</h1>
-                            <h4><span class="badge bg-warning">In Development</span></h4>
-                            <blockquote class="blockquote">
-                                <p class="mb-0">A tool for creating trigger-driven scenes in the Unreal Engine</p>
-                            </blockquote>
-                            <span class="d-inline-block" tabindex="0" title="Reflex is closed source for now.">
-                                <a class="btn btn-info disabled" style="pointer-events: none;" href="#" target="_blank"
-                                   role="button">Latest Release</a>
-                            </span>
-                            <div class="accordion accordion-flush" id="reflex-accordion">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="reflex-description-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#reflex-description-body" aria-expanded="true"
-                                                aria-controls="reflex-description-body">
-                                            Description
-                                        </button>
-                                    </h2>
-                                    <div id="reflex-description-body" class="accordion-collapse collapse show"
-                                         aria-labelledby="reflex-description-header" data-bs-parent="#reflex-accordion">
-                                        <div class="accordion-body">
-                                            <h4>Overview</h4>
-                                            <p>
-                                                The exact implementation of Reflex is currently a trade secret.
-                                                The tool is currently being used at Blink Studios to massively speed up
-                                                development time.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="reflex-screenshots-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#reflex-screenshots-body"
-                                                aria-expanded="false" aria-controls="reflex-screenshots-body">
-                                            Screenshots
-                                        </button>
-                                    </h2>
-                                    <div id="reflex-screenshots-body" class="accordion-collapse collapse"
-                                         aria-labelledby="reflex-screenshots-header" data-bs-parent="#reflex-accordion">
-                                        <div class="accordion-body">
-                                            <div id="reflex-pictures" class="carousel slide" data-bs-ride="carousel">
-                                                <ol class="carousel-indicators">
-                                                    <li data-bs-target="#reflex-pictures" data-bs-slide-to="0"
-                                                        class="active"></li>
-                                                    <li data-bs-target="#reflex-pictures" data-bs-slide-to="1"></li>
-                                                </ol>
-                                                <div class="carousel-inner">
-                                                    <div class="carousel-item active">
-                                                        <img src="static/img/reflex/ReflexGrid.png"
-                                                             class="d-block w-100"
-                                                             alt="The view of a Reflex Scene">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>The view of a Reflex scene in the editor</h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img src="static/img/reflex/ReflexImplementation.png"
-                                                             class="d-block w-100"
-                                                             alt="A Reflex scene running in game">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>A Reflex scene running in-game</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a class="carousel-control-prev" href="#reflex-pictures" role="button"
-                                                   data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Previous</span>
-                                                </a>
-                                                <a class="carousel-control-next" href="#reflex-pictures" role="button"
-                                                   data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Next</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <script>
+                    loadHtmlIntoDiv("pages/game-systems/reflex/reflex.html", "reflex-content");
+                </script>
             </div>
             <div class="tab-pane fade" id="specular-content" role="tabpanel" aria-labelledby="specular-content-tab">
-                <div class="container">
-                    <div class="card text-center">
-                        <div class="card-body">
-                            <h1>Specular</h1>
-                            <h4><span class="badge bg-success">Complete</span></h4>
-                            <blockquote class="blockquote">
-                                <p class="mb-0">A system that allows writers to write complex dialogue scenes to be run
-                                    in game engines</p>
-                            </blockquote>
-                            <a class="btn btn-info" href="https://github.com/Bluepuff71/SpecularLang" target="_blank"
-                               role="button">Latest Release</a>
-                            <div class="accordion accordion-flush" id="specular-accordion">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="specular-description-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                data-bs-target="#specular-description-body" aria-expanded="true"
-                                                aria-controls="specular-description-body">
-                                            Description
-                                        </button>
-                                    </h2>
-                                    <div id="specular-description-body" class="accordion-collapse collapse show"
-                                         aria-labelledby="specular-description-header"
-                                         data-bs-parent="#specular-accordion">
-                                        <div class="accordion-body">
-                                            <h4>SpecularLang (Slang)</h4>
-                                            <p>
-                                                Slang is a custom programming language built using Antlr4.
-                                                It allows for conditionals, choices, dialogue, custom actions, and math.
-                                            </p>
-                                            <h4>Implementations</h4>
-                                            <p>
-                                                Specular has been implemented into the Unreal Engine as a plugin.
-                                                The plugin is currently closed source.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="specular-screenshots-header">
-                                        <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#specular-screenshots-body"
-                                                aria-expanded="false" aria-controls="specular-screenshots-body">
-                                            Screenshots
-                                        </button>
-                                    </h2>
-                                    <div id="specular-screenshots-body" class="accordion-collapse collapse"
-                                         aria-labelledby="specular-screenshots-header"
-                                         data-bs-parent="#specular-accordion">
-                                        <div class="accordion-body">
-                                            <div id="specular-pictures" class="carousel slide" data-bs-interval="false"
-                                                 data-bs-ride="carousel">
-                                                <ol class="carousel-indicators">
-                                                    <li data-bs-target="#specular-pictures" data-bs-slide-to="0"
-                                                        class="active"></li>
-                                                    <li data-bs-target="#specular-pictures" data-bs-slide-to="1"></li>
-                                                </ol>
-                                                <div class="carousel-inner">
-                                                    <div class="carousel-item active">
-                                                        <img src="static/img/specular/SpecularLang.png"
-                                                             class="d-block w-100" alt="Scene built with SpecularLang">
-                                                        <div class="carousel-caption w-100 d-none d-md-block bg-dark">
-                                                            <h5>A scene built using SpecularLang</h5>
-                                                        </div>
-                                                    </div>
-                                                    <div class="carousel-item">
-                                                        <img src="static/img/specular/SpecularLangTranspile.png"
-                                                             class="d-block w-100" alt="Specular scene post-transpile">
-                                                        <div class="carousel-caption d-none d-md-block">
-                                                            <h5>A Specular scene post-transpile</h5>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <a class="carousel-dark carousel-control-prev" href="#specular-pictures"
-                                                   role="button"
-                                                   data-bs-slide="prev">
-                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Previous</span>
-                                                </a>
-                                                <a class="carousel-dark carousel-control-next" href="#specular-pictures"
-                                                   role="button"
-                                                   data-bs-slide="next">
-                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                    <span class="visually-hidden">Next</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <script>
+                    loadHtmlIntoDiv("pages/game-systems/specular/specular.html", "specular-content");
+                </script>
             </div>
         </div>
     </div>
+    <!-- /Game Systems Tab -->
+
     <!--<div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
         <div class="container-fluid">
             <div class="row">
@@ -679,46 +120,6 @@
             </div>
         </div>
     </div>-->
-</div>
-
-<div class="modal fade" id="fluxlab-project-requirements" tabindex="-1"
-     aria-labelledby="fluxlab-project-requirements-label" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="fluxlab-project-requirements-label">Project Requirements</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>
-                    The Project is based on the 2021 Student Game Competition. Your game must follow one of the
-                    following categories.
-                </p>
-                <ol>
-                    <li>
-                        <b>Innovative Interfaces:</b> Games submitted to this category should be games that push the
-                        boundaries
-                        of current games and game interface practice. Example areas include the use of gesture,
-                        multi-touch,
-                        multi-screen or haptics; voice input; use of sensors such as breathing or heart rate;
-                        augmented reality games, mixed reality games, novel use of game AI and machine
-                        learning techniques, or explore novel, thought-provoking forms of interaction.
-                    </li>
-                    <li>
-                        <b>Transformative & Transgressive Play:</b> This category attends to the expanding boundaries of
-                        play
-                        and game design with the emergence of independent games, art games, and political games as well
-                        as gamified/playbourised systems that explore the role of play in non-gaming settings.
-                        For example, games now play an increasingly important role in areas like education,
-                        healthcare, safety, urban planning, sustainability, and other economic, cultural, and societal
-                        sectors. Games submitted to this category should draw on these expanding boundaries of game
-                        design to create innovative gameplay for non-gaming settings, and critically reflect on
-                        challenges.
-                    </li>
-                </ol>
-            </div>
-        </div>
-    </div>
 </div>
 </body>
 </html>
