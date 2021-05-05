@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="card text-center">
+        <div class="card-body">
+            <h1>ModSystems</h1>
+            <h4><span class="badge bg-success">Complete</span></h4>
+            <blockquote class="blockquote">
+                <p class="mb-0">Modular subsystems for rapid unreal game development</p>
+            </blockquote>
+            <div class="mx-auto" id="modsystems-navbar">
+                <ul class="nav nav-pills nav-justified justify-content-center mx-4 my-2 flex-column flex-sm-row"
+                    role="tablist">
+                    <li class="nav-item text-center" role="presentation">
+                        <a class="nav-link active" id="moddialogue-content-tab" data-bs-toggle="pill" href="#moddialogue-content"
+                           role="tab"
+                           aria-controls="moddialogue-content" aria-selected="true">ModDialogue</a>
+                    </li>
+                    <li class="nav-item text-center" role="presentation">
+                        <a class="nav-link" id="modnpc-content-tab" data-bs-toggle="pill" href="#modnpc-content"
+                           role="tab"
+                           aria-controls="modnpc-content" aria-selected="true">ModNPC</a>
+                    </li>
+                    <li class="nav-item text-center" role="presentation">
+                        <a class="nav-link" id="modevidence-content-tab" data-bs-toggle="pill" href="#modevidence-content"
+                           role="tab"
+                           aria-controls="modevidence-content" aria-selected="true">ModEvidence</a>
+                    </li>
+                    <li class="nav-item text-center" role="presentation">
+                        <a class="nav-link" id="modtimestate-content-tab" data-bs-toggle="pill" href="#modtimestate-content"
+                           role="tab"
+                           aria-controls="modtimestate-content" aria-selected="true">ModTimestate</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="moddialogue-content" role="tabpanel" aria-labelledby="moddialogue-content-tab">
+                    <script>
+                        loadHtmlIntoDiv("pages/game-systems/modsystems/moddialogue/moddialogue.html", "moddialogue-content");
+                    </script>
+                </div>
+                <div class="tab-pane fade" id="modnpc-content" role="tabpanel" aria-labelledby="modnpc-content-tab">
+                    <script>
+                        loadHtmlIntoDiv("pages/game-systems/modsystems/modnpc/modnpc.html", "modnpc-content");
+                    </script>
+                </div>
+                <div class="tab-pane fade" id="modevidence-content" role="tabpanel" aria-labelledby="modevidence-content-tab">
+                    <script>
+                        loadHtmlIntoDiv("pages/game-systems/modsystems/modevidence/modevidence.html", "modevidence-content");
+                    </script>
+                </div>
+                <div class="tab-pane fade" id="modtimestate-content" role="tabpanel" aria-labelledby="modtimestate-content-tab">
+                    <script>
+                        loadHtmlIntoDiv("pages/game-systems/modsystems/modtimestate/modtimestate.html", "modtimestate-content");
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
