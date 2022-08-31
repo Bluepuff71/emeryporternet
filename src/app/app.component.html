@@ -15,4 +15,20 @@
   </div>
   <h1 class="display-1">.emeryporter.net</h1>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<amplify-authenticator>
+  <ng-template
+    amplifySlot="authenticated"
+    let-user="user"
+    let-signOut="signOut"
+  >
+    <h1>Welcome {{ user.username }}!</h1>
+    <button (click)="signOut()">Sign Out</button>
+  </ng-template>
+</amplify-authenticator>
 <router-outlet (activate)="onRouteActivated()"></router-outlet>
