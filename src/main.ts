@@ -8,7 +8,7 @@ import "./assets/main.css";
 
 //AWS Stuff
 import { Amplify } from '@aws-amplify/core';
-import awsExports from './aws/aws-exports';
+import awsExports from './aws-exports';
 Amplify.configure(awsExports);
 
 const app = createApp(App);
