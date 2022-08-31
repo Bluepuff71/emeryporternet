@@ -3,10 +3,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateCharacter = /* GraphQL */ `
-  subscription OnCreateCharacter(
-    $filter: ModelSubscriptionCharacterFilterInput
-  ) {
-    onCreateCharacter(filter: $filter) {
+  subscription OnCreateCharacter {
+    onCreateCharacter {
       id
       name
       description
@@ -16,10 +14,8 @@ export const onCreateCharacter = /* GraphQL */ `
   }
 `;
 export const onUpdateCharacter = /* GraphQL */ `
-  subscription OnUpdateCharacter(
-    $filter: ModelSubscriptionCharacterFilterInput
-  ) {
-    onUpdateCharacter(filter: $filter) {
+  subscription OnUpdateCharacter {
+    onUpdateCharacter {
       id
       name
       description
@@ -29,10 +25,8 @@ export const onUpdateCharacter = /* GraphQL */ `
   }
 `;
 export const onDeleteCharacter = /* GraphQL */ `
-  subscription OnDeleteCharacter(
-    $filter: ModelSubscriptionCharacterFilterInput
-  ) {
-    onDeleteCharacter(filter: $filter) {
+  subscription OnDeleteCharacter {
+    onDeleteCharacter {
       id
       name
       description

@@ -106,44 +106,6 @@ export type ModelCharacterConnection = {
   nextToken?: string | null,
 };
 
-export type ModelSubscriptionCharacterFilterInput = {
-  id?: ModelSubscriptionIDInput | null,
-  name?: ModelSubscriptionStringInput | null,
-  description?: ModelSubscriptionStringInput | null,
-  and?: Array< ModelSubscriptionCharacterFilterInput | null > | null,
-  or?: Array< ModelSubscriptionCharacterFilterInput | null > | null,
-};
-
-export type ModelSubscriptionIDInput = {
-  ne?: string | null,
-  eq?: string | null,
-  le?: string | null,
-  lt?: string | null,
-  ge?: string | null,
-  gt?: string | null,
-  contains?: string | null,
-  notContains?: string | null,
-  between?: Array< string | null > | null,
-  beginsWith?: string | null,
-  in?: Array< string | null > | null,
-  notIn?: Array< string | null > | null,
-};
-
-export type ModelSubscriptionStringInput = {
-  ne?: string | null,
-  eq?: string | null,
-  le?: string | null,
-  lt?: string | null,
-  ge?: string | null,
-  gt?: string | null,
-  contains?: string | null,
-  notContains?: string | null,
-  between?: Array< string | null > | null,
-  beginsWith?: string | null,
-  in?: Array< string | null > | null,
-  notIn?: Array< string | null > | null,
-};
-
 export type CreateCharacterMutationVariables = {
   input: CreateCharacterInput,
   condition?: ModelCharacterConditionInput | null,
@@ -228,10 +190,6 @@ export type ListCharactersQuery = {
   } | null,
 };
 
-export type OnCreateCharacterSubscriptionVariables = {
-  filter?: ModelSubscriptionCharacterFilterInput | null,
-};
-
 export type OnCreateCharacterSubscription = {
   onCreateCharacter?:  {
     __typename: "Character",
@@ -243,10 +201,6 @@ export type OnCreateCharacterSubscription = {
   } | null,
 };
 
-export type OnUpdateCharacterSubscriptionVariables = {
-  filter?: ModelSubscriptionCharacterFilterInput | null,
-};
-
 export type OnUpdateCharacterSubscription = {
   onUpdateCharacter?:  {
     __typename: "Character",
@@ -256,10 +210,6 @@ export type OnUpdateCharacterSubscription = {
     createdAt: string,
     updatedAt: string,
   } | null,
-};
-
-export type OnDeleteCharacterSubscriptionVariables = {
-  filter?: ModelSubscriptionCharacterFilterInput | null,
 };
 
 export type OnDeleteCharacterSubscription = {
