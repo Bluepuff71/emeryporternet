@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-emeryporternet-dev-84139-authRole",
+      "UnauthRoleArn": "arn:aws:iam::142742248261:role/amplify-emeryporternet-dev-84139-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::142742248261:role/amplify-emeryporternet-dev-84139-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-emeryporternet-dev-84139-deployment",
+      "UnauthRoleName": "amplify-emeryporternet-dev-84139-unauthRole",
+      "StackName": "amplify-emeryporternet-dev-84139",
+      "StackId": "arn:aws:cloudformation:us-east-2:142742248261:stack/amplify-emeryporternet-dev-84139/79ce8c50-2869-11ed-9509-0af2185d7e9c",
+      "AmplifyAppId": "dociewve0gks9"
+    },
+    "categories": {
+      "auth": {
+        "emeryporterneta32f177d": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+# this is an auto generated file. This will be overwritten
+subscription OnCreateCharacter {
+  onCreateCharacter {
+    id
+    name
+    description
+    samplePath
+    picturePath
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateCharacter($filter: ModelSubscriptionCharacterFilterInput) {
+  onUpdateCharacter(filter: $filter) {
+    id
+    name
+    description
+    samplePath
+    picturePath
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteCharacter($filter: ModelSubscriptionCharacterFilterInput) {
+  onDeleteCharacter(filter: $filter) {
+    id
+    name
+    description
+    samplePath
+    picturePath
+    createdAt
+    updatedAt
+  }
+}

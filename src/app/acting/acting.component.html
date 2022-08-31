@@ -2,8 +2,46 @@
     
     <div class="card">
         <div class="card-body">
+            <div class="form-body">
+                <form
+                  autocomplete="off"
+                  [formGroup]="createForm"
+                  (ngSubmit)="onCreate(createForm.value)"
+                >
+                  <div>
+                    <label>Name: </label>
+                    <input type="text" formControlName="name" autocomplete="off" />
+                  </div>
+                  <div>
+                    <label>Description: </label>
+                    <input type="text" formControlName="description" autocomplete="off" />
+                  </div>
+                  <div>
+                    <label>Sample Path: </label>
+                    <input type="text" formControlName="samplePath" autocomplete="off" />
+                  </div>
+                  <div>
+                    <label>Picture Path: </label>
+                    <input type="text" formControlName="picturePath" autocomplete="off" />
+                  </div>
+                  <button type="submit">Submit</button>
+                  <button type="button" (click)="onClearPressed()">Clear</button>
+                </form>
+              </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
             <h2>Characters</h2>
-            
+            <div class="card" *ngFor="let character of characters">
+                <div class="card-body">
+                    <div>{{ character.name }}</div>
+                    <div>{{ character.description }}</div>
+                    <div>{{ character.samplePath }}</div>
+                    <div>{{ character.picturePath }}</div>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +11,8 @@ export class AppComponent {
   currentRouteName: string = "";
   routeNames: string[] = [];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
-
+  constructor(private router: Router) {}
+  
   public onRouteDropdownOpenChange(isOpen: boolean): void {
     if(isOpen) {
       this.routeNames = this.getRouteNames();
