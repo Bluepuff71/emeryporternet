@@ -1,123 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>emeryporter.net</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/main.css" type="text/css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.4/pdfobject.min.js"
-            integrity="sha512-mW7siBAOOJTkMl77cTke1Krn+Wz8DJrjMzlKaorrGeGecq0DPUq28KgMrX060xQQOGjcl7MSSep+/1FOprNltw=="
-            crossorigin="anonymous"></script>
-    <script src="js/main.js"></script>
-</head>
-<body>
-<h1 class="display-1 text-center">emeryporter.net</h1>
-
-<div id="main-navbar">
-    <script>
-        loadHtmlIntoDiv("pages/navbar.html", "main-navbar");
-    </script>
-</div>
-
-
-<div class="tab-content">
-    <!-- About Tab -->
-    <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
-        <div class="mx-auto" id="about-navbar">
-            <script>
-                loadHtmlIntoDiv("pages/about/navbar.html", "about-navbar")
-            </script>
-        </div>
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="who-am-i-content" role="tabpanel" aria-labelledby="who-am-i-content-tab">
-                <script>
-                    loadHtmlIntoDiv("pages/about/who-am-i/who-am-i.html", "who-am-i-content")
-                </script>
-            </div>
-            <div class="tab-pane fade" id="resume-content" role="tabpanel" aria-labelledby="resume-content-tab">
-                <script>
-                    loadHtmlIntoDiv("pages/about/resume/resume.html", "resume-content").then(() => {
-                        PDFObject.embed("pages/about/resume/static/pdf/Robert%20Emery%20Porter%20Resume.pdf", "#resume");
-                    });
-                </script>
-            </div>
-        </div>
-    </div>
-    <!-- /About Tab -->
-
-    <!-- Games Tab -->
-    <div class="tab-pane fade" id="games" role="tabpanel" aria-labelledby="games-tab">
-        <div class="mx-auto" id="games-navbar">
-            <script>
-                loadHtmlIntoDiv("pages/games/navbar.html", "games-navbar");
-            </script>
-        </div>
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="fluxlab-content" role="tabpanel" aria-labelledby="fluxlab-content-tab">
-                <script>
-                    loadHtmlIntoDiv("pages/games/fluxlab/fluxlab.html", "fluxlab-content");
-                </script>
-            </div>
-            <div class="tab-pane fade" id="superfist-content" role="tabpanel" aria-labelledby="superfist-content-tab">
-                <script>
-                    loadHtmlIntoDiv("pages/games/superfist/superfist.html", "superfist-content");
-                </script>
-            </div>
-            <div class="tab-pane fade" id="tamagotchi-content" role="tabpanel" aria-labelledby="tamagotchi-content-tab">
-                <script>
-                    loadHtmlIntoDiv("pages/games/tamagotchi/tamagotchi.html", "tamagotchi-content");
-                </script>
-            </div>
-        </div>
-    </div>
-    <!-- /Games Tab -->
-
-    <!-- Game Systems Tab -->
-    <div class="tab-pane fade" id="game-systems" role="tabpanel" aria-labelledby="game-systems-tab">
-        <div class="mx-auto" id="game-systems-navbar">
-            <script>
-                loadHtmlIntoDiv("pages/game-systems/navbar.html", "game-systems-navbar");
-            </script>
-        </div>
-        <div class="tab-content">
-            <div class="tab-pane fade show active" id="reflex-content" role="tabpanel"
-                 aria-labelledby="reflex-content-tab">
-                <script>
-                    loadHtmlIntoDiv("pages/game-systems/reflex/reflex.html", "reflex-content");
-                </script>
-            </div>
-            <div class="tab-pane fade" id="specular-content" role="tabpanel" aria-labelledby="specular-content-tab">
-                <script>
-                    loadHtmlIntoDiv("pages/game-systems/specular/specular.html", "specular-content");
-                </script>
-            </div>
-        </div>
-    </div>
-    <!-- /Game Systems Tab -->
-
-    <!--<div class="tab-pane fade" id="software" role="tabpanel" aria-labelledby="software-tab">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tab-pane fade" id="acting" role="tabpanel" aria-labelledby="acting-tab">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col">
-                    <h1>Improv</h1>
-                    <h1>Short film</h1>
-                    <h1>Stonewater script</h1>
-                </div>
-            </div>
-        </div>
-    </div>-->
-</div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
