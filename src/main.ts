@@ -5,12 +5,11 @@ import App from "./App.vue";
 import router from "./router";
 
 //AWS Stuff
-import { Amplify } from '@aws-amplify/core';
+import { Amplify } from 'aws-amplify';
 import awsExports from './aws-exports';
 Amplify.configure(awsExports);
 
 import "bootswatch/dist/darkly/bootstrap.min.css";
-import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 
 const app = createApp(App);

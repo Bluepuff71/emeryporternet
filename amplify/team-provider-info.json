@@ -10,6 +10,11 @@
       "StackName": "amplify-emeryporternet-dev-84641",
       "StackId": "arn:aws:cloudformation:us-east-2:142742248261:stack/amplify-emeryporternet-dev-84641/5869e800-2933-11ed-99c2-0a74f296a8f6",
       "AmplifyAppId": "d2ukdmbp2aytt3"
+    },
+    "categories": {
+      "auth": {
+        "emeryporternetc157458f": {}
+      }
     }
   }
 }
