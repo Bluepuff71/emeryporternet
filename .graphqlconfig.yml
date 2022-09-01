@@ -1,15 +1,15 @@
 projects:
   CharacterAPI:
-    schemaPath: src/graphql/schema.json
+    schemaPath: src/api/character-api/graphql/schema.json
     includes:
-      - src/graphql/**/*.ts
+      - src/api/character-api/graphql/**/*.ts
     excludes:
       - ./amplify/**
     extensions:
       amplify:
         codeGenTarget: typescript
-        generatedFileName: src/api.ts
-        docsFilePath: src/graphql
+        generatedFileName: src/api/character-api/api.ts
+        docsFilePath: src/api/character-api/graphql
 extensions:
   amplify:
     version: 3

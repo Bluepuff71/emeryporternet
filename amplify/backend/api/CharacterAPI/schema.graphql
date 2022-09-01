@@ -1,5 +1,5 @@
 type Character @model @auth(rules: [
-  { allow: public, operations: [read]},
+  { allow: public, operations: [read], provider: iam }
   { allow: private }
   ]) {
   id: ID!
