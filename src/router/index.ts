@@ -1,5 +1,5 @@
 import { AuthUtils } from "@/utils/auth-utils";
-import AuthView from "@/views/AuthView.vue";
+import LoginView from "@/views/LoginView.vue";
 import { Auth } from "aws-amplify";
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
@@ -23,9 +23,9 @@ const router = createRouter({
       meta: { requiresAuth: false, isHidden: false },
     },
     {
-      path: "/auth",
-      name: "auth",
-      component: AuthView,
+      path: "/login",
+      name: "login",
+      component: LoginView,
       meta: { requiresAuth: false, isHidden: false },
     },
   ],
@@ -34,7 +34,7 @@ const router = createRouter({
 router.beforeEach(async (to, from) => {
   if (to.meta.requiresAuth && !(await AuthUtils.isAuthenticated())) {
     return {
-      name: "auth",
+      name: "login",
       query: { redirect: to.fullPath },
     };
   }

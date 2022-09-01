@@ -2,8 +2,12 @@ import { Auth } from "aws-amplify";
 
 export class AuthUtils {
     static async isAuthenticated(): Promise<boolean> {
-        return await Auth.currentAuthenticatedUser()
+        return Auth.currentAuthenticatedUser()
         .then(() => true)
         .catch(() => false);
+    }
+
+    static async getAuthMode(): Promise<'AWS_IAM' | undefined> {
+        return (await this.isAuthenticated()) ? undefined : 'AWS_IAM'; 
     }
 }
