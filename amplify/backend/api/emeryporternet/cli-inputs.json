@@ -1,17 +1,21 @@
 {
   "version": 1,
   "serviceConfiguration": {
-    "apiName": "CharacterAPI",
+    "apiName": "emeryporternet",
     "serviceName": "AppSync",
     "defaultAuthType": {
       "mode": "AMAZON_COGNITO_USER_POOLS",
-      "cognitoUserPoolId": "authemeryporternetc157458f"
+      "cognitoUserPoolId": "authemeryporternet"
     },
     "additionalAuthTypes": [
       {
         "mode": "AWS_IAM"
       }
     ],
-    "conflictResolution": {}
+    "conflictResolution": {
+      "defaultResolutionStrategy": {
+        "type": "AUTOMERGE"
+      }
+    }
   }
 }

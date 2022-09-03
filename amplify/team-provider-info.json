@@ -1,19 +1,19 @@
 {
-  "dev": {
+  "staging": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-emeryporternet-dev-84641-authRole",
-      "UnauthRoleArn": "arn:aws:iam::142742248261:role/amplify-emeryporternet-dev-84641-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::142742248261:role/amplify-emeryporternet-dev-84641-authRole",
+      "AuthRoleName": "amplify-emeryporternet-staging-171601-authRole",
+      "UnauthRoleArn": "arn:aws:iam::142742248261:role/amplify-emeryporternet-staging-171601-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::142742248261:role/amplify-emeryporternet-staging-171601-authRole",
       "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-emeryporternet-dev-84641-deployment",
-      "UnauthRoleName": "amplify-emeryporternet-dev-84641-unauthRole",
-      "StackName": "amplify-emeryporternet-dev-84641",
-      "StackId": "arn:aws:cloudformation:us-east-2:142742248261:stack/amplify-emeryporternet-dev-84641/5869e800-2933-11ed-99c2-0a74f296a8f6",
-      "AmplifyAppId": "d2ukdmbp2aytt3"
+      "DeploymentBucketName": "amplify-emeryporternet-staging-171601-deployment",
+      "UnauthRoleName": "amplify-emeryporternet-staging-171601-unauthRole",
+      "StackName": "amplify-emeryporternet-staging-171601",
+      "StackId": "arn:aws:cloudformation:us-east-2:142742248261:stack/amplify-emeryporternet-staging-171601/c128f7f0-2a19-11ed-ba84-06db792f6838",
+      "AmplifyAppId": "d1hhzka8v72e79"
     },
     "categories": {
       "auth": {
-        "emeryporternetc157458f": {}
+        "emeryporternet": {}
       }
     }
   }

@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3emeryporternetstorage20b20a28",
+  "bucketName": "emeryporter-net-storage-20b20a28",
+  "policyUUID": "eca28626",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

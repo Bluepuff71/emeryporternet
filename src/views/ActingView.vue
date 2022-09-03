@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CharacterView/>
+    <CharacterView />
     <nav>
       <RouterLink to="/">Home</RouterLink>
     </nav>

@@ -1,0 +1,13 @@
+type S3Object {
+  bucket: String!
+  key: String!
+  region: String!
+}
+
+type Character @model @auth(rules: [{allow: private}, {allow: public, operations: [read], provider: iam}]) {
+  id: ID!
+  name: String
+  description: String
+  audio: S3Object
+}
+ 

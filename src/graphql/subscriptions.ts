@@ -8,8 +8,16 @@ export const onCreateCharacter = /* GraphQL */ `
       id
       name
       description
+      audio {
+        bucket
+        key
+        region
+      }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -19,8 +27,16 @@ export const onUpdateCharacter = /* GraphQL */ `
       id
       name
       description
+      audio {
+        bucket
+        key
+        region
+      }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;
@@ -30,8 +46,16 @@ export const onDeleteCharacter = /* GraphQL */ `
       id
       name
       description
+      audio {
+        bucket
+        key
+        region
+      }
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
     }
   }
 `;

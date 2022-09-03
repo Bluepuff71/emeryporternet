@@ -4,8 +4,16 @@
 
 export type CreateCharacterInput = {
   id?: string | null,
-  name: string,
+  name?: string | null,
   description?: string | null,
+  audio?: S3ObjectInput | null,
+  _version?: number | null,
+};
+
+export type S3ObjectInput = {
+  bucket: string,
+  key: string,
+  region: string,
 };
 
 export type ModelCharacterConditionInput = {
@@ -59,20 +67,34 @@ export type ModelSizeInput = {
 export type Character = {
   __typename: "Character",
   id: string,
-  name: string,
+  name?: string | null,
   description?: string | null,
+  audio?: S3Object | null,
   createdAt: string,
   updatedAt: string,
+  _version: number,
+  _deleted?: boolean | null,
+  _lastChangedAt: number,
+};
+
+export type S3Object = {
+  __typename: "S3Object",
+  bucket: string,
+  key: string,
+  region: string,
 };
 
 export type UpdateCharacterInput = {
   id: string,
   name?: string | null,
   description?: string | null,
+  audio?: S3ObjectInput | null,
+  _version?: number | null,
 };
 
 export type DeleteCharacterInput = {
   id: string,
+  _version?: number | null,
 };
 
 export type ModelCharacterFilterInput = {
@@ -104,6 +126,7 @@ export type ModelCharacterConnection = {
   __typename: "ModelCharacterConnection",
   items:  Array<Character | null >,
   nextToken?: string | null,
+  startedAt?: number | null,
 };
 
 export type CreateCharacterMutationVariables = {
@@ -115,10 +138,19 @@ export type CreateCharacterMutation = {
   createCharacter?:  {
     __typename: "Character",
     id: string,
-    name: string,
+    name?: string | null,
     description?: string | null,
+    audio?:  {
+      __typename: "S3Object",
+      bucket: string,
+      key: string,
+      region: string,
+    } | null,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -131,10 +163,19 @@ export type UpdateCharacterMutation = {
   updateCharacter?:  {
     __typename: "Character",
     id: string,
-    name: string,
+    name?: string | null,
     description?: string | null,
+    audio?:  {
+      __typename: "S3Object",
+      bucket: string,
+      key: string,
+      region: string,
+    } | null,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -147,10 +188,19 @@ export type DeleteCharacterMutation = {
   deleteCharacter?:  {
     __typename: "Character",
     id: string,
-    name: string,
+    name?: string | null,
     description?: string | null,
+    audio?:  {
+      __typename: "S3Object",
+      bucket: string,
+      key: string,
+      region: string,
+    } | null,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -162,10 +212,19 @@ export type GetCharacterQuery = {
   getCharacter?:  {
     __typename: "Character",
     id: string,
-    name: string,
+    name?: string | null,
     description?: string | null,
+    audio?:  {
+      __typename: "S3Object",
+      bucket: string,
+      key: string,
+      region: string,
+    } | null,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -181,12 +240,54 @@ export type ListCharactersQuery = {
     items:  Array< {
       __typename: "Character",
       id: string,
-      name: string,
+      name?: string | null,
       description?: string | null,
+      audio?:  {
+        __typename: "S3Object",
+        bucket: string,
+        key: string,
+        region: string,
+      } | null,
       createdAt: string,
       updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
     } | null >,
     nextToken?: string | null,
+    startedAt?: number | null,
+  } | null,
+};
+
+export type SyncCharactersQueryVariables = {
+  filter?: ModelCharacterFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+  lastSync?: number | null,
+};
+
+export type SyncCharactersQuery = {
+  syncCharacters?:  {
+    __typename: "ModelCharacterConnection",
+    items:  Array< {
+      __typename: "Character",
+      id: string,
+      name?: string | null,
+      description?: string | null,
+      audio?:  {
+        __typename: "S3Object",
+        bucket: string,
+        key: string,
+        region: string,
+      } | null,
+      createdAt: string,
+      updatedAt: string,
+      _version: number,
+      _deleted?: boolean | null,
+      _lastChangedAt: number,
+    } | null >,
+    nextToken?: string | null,
+    startedAt?: number | null,
   } | null,
 };
 
@@ -194,10 +295,19 @@ export type OnCreateCharacterSubscription = {
   onCreateCharacter?:  {
     __typename: "Character",
     id: string,
-    name: string,
+    name?: string | null,
     description?: string | null,
+    audio?:  {
+      __typename: "S3Object",
+      bucket: string,
+      key: string,
+      region: string,
+    } | null,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -205,10 +315,19 @@ export type OnUpdateCharacterSubscription = {
   onUpdateCharacter?:  {
     __typename: "Character",
     id: string,
-    name: string,
+    name?: string | null,
     description?: string | null,
+    audio?:  {
+      __typename: "S3Object",
+      bucket: string,
+      key: string,
+      region: string,
+    } | null,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };
 
@@ -216,9 +335,18 @@ export type OnDeleteCharacterSubscription = {
   onDeleteCharacter?:  {
     __typename: "Character",
     id: string,
-    name: string,
+    name?: string | null,
     description?: string | null,
+    audio?:  {
+      __typename: "S3Object",
+      bucket: string,
+      key: string,
+      region: string,
+    } | null,
     createdAt: string,
     updatedAt: string,
+    _version: number,
+    _deleted?: boolean | null,
+    _lastChangedAt: number,
   } | null,
 };

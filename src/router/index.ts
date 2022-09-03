@@ -1,6 +1,5 @@
 import { AuthUtils } from "@/utils/auth-utils";
 import LoginView from "@/views/LoginView.vue";
-import { Auth } from "aws-amplify";
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 

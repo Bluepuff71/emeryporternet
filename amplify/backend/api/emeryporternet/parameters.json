@@ -1,11 +1,11 @@
 {
-  "AppSyncApiName": "CharacterAPI",
+  "AppSyncApiName": "emeryporternet",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
   "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2022-09-01T01:59:42.254Z",
+  "AuthModeLastUpdated": "2022-09-01T18:33:37.144Z",
   "AuthCognitoUserPoolId": {
     "Fn::GetAtt": [
-      "authemeryporternetc157458f",
+      "authemeryporternet",
       "Outputs.UserPoolId"
     ]
   }
