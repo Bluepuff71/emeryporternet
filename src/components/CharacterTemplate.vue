@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import type { Character } from "@/models";
 import CardTemplate from "./CardTemplate.vue";
-import { Storage } from "aws-amplify";
+import { Storage } from "@aws-amplify/storage";
 import { onMounted, ref } from "vue";
 
 const props = defineProps<{ character: Character }>();

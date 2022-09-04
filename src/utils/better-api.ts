@@ -1,7 +1,8 @@
 import type { GraphQLOptions, GraphQLResult, GRAPHQL_AUTH_MODE } from "@aws-amplify/api-graphql";
+import { GraphQLAPI } from "@aws-amplify/api-graphql";
 import type { AWSAppSyncRealTimeProvider } from "@aws-amplify/pubsub";
 import type { PutResult } from "@aws-amplify/storage";
-import { API, Storage } from "aws-amplify";
+import { Storage } from "@aws-amplify/storage";
 import type Observable from "zen-observable-ts";
 import { AuthUtils } from "./auth-utils";
 import { ensure } from "./ensure";
@@ -33,6 +34,10 @@ const betterAPIOperation = (query: any, variables?: {}, authMode?: keyof typeof 
 });
 
 export class BetterAPI {
+  public static test() {
+    return GraphQLAPI.getModuleName();
+  }
+
   public static async query<
     R extends object | object[],
     V extends GraphQLOptions["variables"] = GraphQLOptions["variables"]
@@ -42,12 +47,6 @@ export class BetterAPI {
   ): Promise<R extends object[] ? ArrayResponse<R> : R> {
     try {
       const response = await this.makeRequest<R>(query, variables) as GraphQLResult<R>;
-      const test = response.data;
-      if(test === undefined) {
-        throw new Error();
-      }
-      const test2 = ensure(test);
-
       return Object.entries(ensure(response.data))[0][1];
     } catch (err) {
       console.error(err);
@@ -99,6 +98,6 @@ export class BetterAPI {
     variables?: V,
   ): Promise<GraphQLResult<R> | Observable<GraphQLSubscriptionResult<R>>> {
     const authMode = await AuthUtils.getAuthMode(); //TODO: this is going to end up slowing down for large requests. We should refactor this file to make it non-static then depedency inject it.
-    return API.graphql(betterAPIOperation(query, variables, authMode)) as GraphQLResult<R>;
+    return GraphQLAPI.graphql(betterAPIOperation(query, variables, authMode)) as GraphQLResult<R>;
   }
 }
