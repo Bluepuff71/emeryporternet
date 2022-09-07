@@ -24,7 +24,7 @@ export interface ArrayResponse<T extends object[]> {
 }
 
 export interface MutateResult<T> {
-  mutateResult: GraphQLResult<T>;
+  mutateResult: T extends object[] ? ArrayResponse<T> : T;
   uploadResult?: PutResult;
 }
 
@@ -55,7 +55,7 @@ export class BetterAPIClass { //TODO: move this out into it's own module
         query,
         variables
       )) as GraphQLResult<R>;
-      return Object.entries(ensure(response.data))[0][1];
+      return this.getObjFromResponse(response);
     } catch (err) {
       console.error(err);
       throw new Error("Api query error");
@@ -67,11 +67,10 @@ export class BetterAPIClass { //TODO: move this out into it's own module
     V extends GraphQLOptions["variables"] = GraphQLOptions["variables"]
   >(query: string, variables: V, uploadData?: FileInputData) {
     try {
+      const response = await this.makeRequest<R>(query, variables) as GraphQLResult<R>;
+      
       const mutateResult: MutateResult<R> = {
-        mutateResult: (await this.makeRequest<R>(
-          query,
-          variables
-        )) as GraphQLResult<R>,
+        mutateResult: this.getObjFromResponse(response)
       };
       if (uploadData) {
         mutateResult.uploadResult = await Storage.put(
@@ -80,6 +79,7 @@ export class BetterAPIClass { //TODO: move this out into it's own module
           { contentType: uploadData.file.type }
         );
       }
+      return mutateResult;
     } catch (err) {
       console.error(err);
       throw new Error("Api mutate error");
@@ -111,6 +111,10 @@ export class BetterAPIClass { //TODO: move this out into it's own module
     return GraphQLAPI.graphql(
       betterAPIOperation(query, variables, authMode)
     ) as GraphQLResult<R>;
+  }
+
+  private getObjFromResponse<T>(response: GraphQLResult<T>): T extends object[] ? ArrayResponse<T> : T {
+    return Object.entries(ensure(response.data))[0][1];
   }
 }
 
