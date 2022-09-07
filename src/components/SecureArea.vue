@@ -1,14 +1,14 @@
 <template>
-  <slot v-if="isAuthenticated"></slot>
+  <slot v-if="isAuth"></slot>
 </template>
 
 <script setup lang="ts">
-import { AuthUtils } from "@/utils/auth-utils";
+import { isAuthenticated } from "@/utils/auth-utils";
 import { ref, onMounted } from "vue";
 
-const isAuthenticated = ref(false);
+const isAuth = ref(false);
 
 onMounted(async () => {
-  isAuthenticated.value = await AuthUtils.isAuthenticated();
+  isAuth.value = await isAuthenticated();
 });
 </script>

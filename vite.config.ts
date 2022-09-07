@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { fileURLToPath, URL } from "node:url";
 
 import { defineConfig } from "vite";
@@ -18,5 +19,8 @@ export default defineConfig({
         replacement: "./runtimeConfig.browser",
       },
     ],
+  },
+  test: {
+    environment: "happy-dom", // or 'jsdom', 'node'
   },
 });

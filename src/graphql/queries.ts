@@ -32,11 +32,6 @@ export const listCharacters = /* GraphQL */ `
         id
         name
         description
-        audio {
-          bucket
-          key
-          region
-        }
         createdAt
         updatedAt
         _version
@@ -65,11 +60,6 @@ export const syncCharacters = /* GraphQL */ `
         id
         name
         description
-        audio {
-          bucket
-          key
-          region
-        }
         createdAt
         updatedAt
         _version

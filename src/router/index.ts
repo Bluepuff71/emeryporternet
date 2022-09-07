@@ -1,4 +1,4 @@
-import { AuthUtils } from "@/utils/auth-utils";
+import { isAuthenticated } from "@/utils/auth-utils";
 import LoginView from "@/views/LoginView.vue";
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
@@ -31,7 +31,7 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from) => {
-  if (to.meta.requiresAuth && !(await AuthUtils.isAuthenticated())) {
+  if (to.meta.requiresAuth && !(await isAuthenticated())) {
     return {
       name: "login",
       query: { redirect: to.fullPath },

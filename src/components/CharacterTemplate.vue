@@ -3,13 +3,13 @@
     <div>Character Name: {{ props.character.name }}</div>
     <div>Description: {{ props.character.name }}</div>
     <audio controls v-if="audioSrc">
-      <source :src="audioSrc" type="audio/mpeg"/>
+      <source :src="audioSrc" type="audio/mpeg" />
     </audio>
   </CardTemplate>
 </template>
 
 <script setup lang="ts">
-import type { Character } from "@/models";
+import type { Character } from "@/api";
 import CardTemplate from "./CardTemplate.vue";
 import { Storage } from "@aws-amplify/storage";
 import { onMounted, ref } from "vue";
@@ -24,14 +24,14 @@ onMounted(async () => {
 
 async function fetchAudio() {
   try {
-      if(props.character.audio) {
-        //const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
-        const test = await Storage.get(props.character.audio?.key)
-        const audio = new Audio(test);
-        audioSrc.value = audio.src
-      }
-    } catch(err) {
-      console.log('error: ', err)
+    if (props.character.audio) {
+      //const url = `https://${bucket}.s3.${region}.amazonaws.com/public/${key}`
+      const test = await Storage.get(props.character.audio?.key);
+      const audio = new Audio(test);
+      audioSrc.value = audio.src;
     }
+  } catch (err) {
+    console.log("error: ", err);
+  }
 }
 </script>
