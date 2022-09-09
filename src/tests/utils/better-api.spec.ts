@@ -1,65 +1,13 @@
-import { BetterAPI, type GraphQLSubscriptionResult } from "@/utils/better-api";
+import { BetterAPI } from "@/utils/better-api";
 import type { FileInputData } from "@/utils/file-input";
-import { GraphQLAPI, type GraphQLOptions, type GraphQLResult } from "@aws-amplify/api-graphql";
+import { GraphQLAPI } from "@aws-amplify/api-graphql";
 import { describe, it, vi, expect } from "vitest";
-import type Observable from "zen-observable-ts";
 
-vi.mock("@aws-amplify/storage", () => {
-  const StorageClass = vi.fn(() => ({
-    put: vi.fn(async () => ({key: "mockKey"}))
-  }));
+vi.mock("@aws-amplify/api-graphql");
 
-  const Storage = new StorageClass();
-  return { StorageClass, Storage };
-});
+vi.mock('@/utils/auth-utils');
 
-vi.mock("@aws-amplify/api-graphql", () => {
-  const mockObj = {
-    stringProp: "string property", 
-    arrayProp: [1,2,3], 
-    objectProp: { 
-      objPropStr: "objectProp string" 
-    }
-  };
-
-  const mockSingleResponse = {
-    data: { 
-      singleQuery: mockObj
-    }
-  }
-
-  const mockArrayResponse = {
-    data:{
-      arrayQuery: {
-        items: [mockObj, mockObj],
-        nextToken: null,
-        startedAt: null
-      }
-    }
-  }
-  const GraphQLAPIClass = vi.fn(() => ({
-      graphql: vi.fn(async ({ query }: GraphQLOptions): Promise<GraphQLResult | Observable<GraphQLSubscriptionResult<object>>> => {
-        switch (query) {
-          case 'singleQuery':
-            return mockSingleResponse;
-          case 'arrayQuery':
-            return mockArrayResponse;
-          default:
-            throw new Error("Bad test query");
-        }
-      })
-  }));
-
-  const GraphQLAPI = new GraphQLAPIClass();
-
-  return { GraphQLAPIClass, GraphQLAPI };
-});
-
-vi.mock('@/utils/auth-utils', () => {
-  const getAuthMode = vi.fn(async (isAuthenticated?: boolean) =>  isAuthenticated ? "AWS_IAM" : undefined);
-
-  return { getAuthMode };
-});
+vi.mock("@aws-amplify/storage");
 
 describe("better-api.ts", () => {
 
@@ -84,6 +32,7 @@ describe("better-api.ts", () => {
   });
 
   describe("mutate", () => {
+    
     const mockUploadData: FileInputData = {
       s3InputData: {
         bucket: "mockBucket",
